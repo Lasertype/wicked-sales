@@ -15,6 +15,10 @@ export default class App extends React.Component {
       .then(products => this.setState({ products }));
   }
 
+  componentDidMount() {
+    this.getProducts();
+  }
+
   render() {
     return (
       <Header />
