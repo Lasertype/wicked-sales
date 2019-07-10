@@ -9,6 +9,12 @@ export default class App extends React.Component {
     };
   }
 
+  getProducts() {
+    fetch('/api/products.php')
+      .then(response => response.json())
+      .then(products => this.setState({ products }));
+  }
+
   render() {
     return (
       <Header />
