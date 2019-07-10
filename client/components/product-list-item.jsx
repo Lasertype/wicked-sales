@@ -1,22 +1,34 @@
 import React from 'react';
 
 export default class ProductListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderProductItem = this.renderProductItem.bind(this);
+  }
 
-  render() {
+  renderProductItem() {
+    // console.log('product: ', this.props.products);
+
     return (
       <div className="productCardContainer">
 
         <div className="productImageContainer">
-          <img className="productImage" src="https://miro.medium.com/max/942/1*m3_D1btUPaMHsUoCFKGgjg.jpeg" alt=""/>
+          <img className="productImage" src={this.props.products.image} alt=""/>
         </div>
 
         <div className="productInformationContainer">
-          <div className="productName">The Clapper</div>
-          <div className="productPrice">$9.99</div>
-          <div className="productDescription">Get clapped with this awesome product.</div>
+          <div className="productName">{this.props.products.name}</div>
+          <div className="productPrice">{this.props.products.price}</div>
+          <div className="productDescription">{this.props.products.shortDescription}</div>
         </div>
 
       </div>
+    );
+  }
+
+  render() {
+    return (
+      this.renderProductItem()
     );
   }
 }
