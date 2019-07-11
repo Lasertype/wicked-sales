@@ -2,19 +2,17 @@ import React from 'react';
 import ProductListItem from './product-list-item';
 
 export default class ProductList extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
 
   render() {
-    // console.log('product-list: ', this.props.products);
     return (
-      <div className="productListContainer">
-        <div>
+      <div className="container">
+        <div className="row">
           {
             this.props.products.map(product => {
               return (
-                <ProductListItem key={product.id} products={product}/>
+                <div className="col-sm-4" style={{ display: 'inline-block', border: '1px solid' }} key={product.id}>
+                  <ProductListItem products={product}/>
+                </div>
               );
             })
           }

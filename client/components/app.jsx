@@ -25,12 +25,6 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        <div>
-          <br />
-          <br />
-          <br />
-          <br />
-        </div>
         <ProductList products={this.state.products} />
       </div>
     );
