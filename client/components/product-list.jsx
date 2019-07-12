@@ -10,7 +10,9 @@ export default class ProductList extends React.Component {
           {
             this.props.products.map(product => {
               return (
-                <div className="col-sm-6" style={{ border: '.5px solid', height: '325px', position: 'relative' }} key={product.id}>
+                <div className="col-sm-6"
+                  style={{ border: '.5px solid', height: '325px', position: 'relative' }}
+                  key={product.id}>
                   <ProductListItem products={product}/>
                 </div>
               );

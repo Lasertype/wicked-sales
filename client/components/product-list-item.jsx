@@ -15,7 +15,10 @@ export default class ProductListItem extends React.Component {
 
     return (
       <div className="card" style={{ display: 'table-cell' }}>
-        <img className="card-img-top img-responsive" src={this.props.products.image} alt="Card image cap" style={{ height: '150px', objectFit: 'contain' }}/>
+        <img className="card-img-top img-responsive"
+          src={this.props.products.image}
+          alt="Card image cap"
+          style={{ height: '150px', objectFit: 'contain' }}/>
         <div className="card-body">
           <h3 className="card-title">{this.props.products.name}</h3>
           <p className="card-text text-muted">{convertedProductPrice}</p>
