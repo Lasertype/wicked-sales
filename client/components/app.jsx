@@ -24,6 +24,15 @@ export default class App extends React.Component {
     this.getProducts();
   }
 
+  setView(name, params) {
+    this.setState({
+      view: {
+        name,
+        params
+      }
+    });
+  }
+
   render() {
     return (
       <div>
