@@ -9,7 +9,7 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/products.php?id=1')
+    fetch('/api/products.php?id=' + this.props.viewParams['id'])
       .then(response => response.json())
       .then(product => this.setState({ product }));
   }
