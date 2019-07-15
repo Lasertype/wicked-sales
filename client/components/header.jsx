@@ -8,10 +8,35 @@ export default class Header extends React.Component {
         <h1 className="header"
           style={{
             fontWeight: '700',
-            padding: '10px',
-            marginTop: '10px'
+            paddingTop: '20px',
+            paddingBottom: '20px',
+            paddingLeft: '20px',
+            paddingRight: '10px',
+            marginTop: '10px',
+            display: 'inline-block'
           }}
         >Wicked Sales</h1>
+        <img src="/WickedBuyer.png" alt="oneofus"
+          style={{
+            display: 'inline-block',
+            width: '28px',
+            height: 'auto',
+            verticalAlign: 'text-bottom'
+          }}/>
+        <img src="/WickedBuyer.png" alt="oneofus"
+          style={{
+            display: 'inline-block',
+            width: '28px',
+            height: 'auto',
+            verticalAlign: 'text-bottom'
+          }}/>
+        <img src="/WickedBuyer.png" alt="oneofus"
+          style={{
+            display: 'inline-block',
+            width: '28px',
+            height: 'auto',
+            verticalAlign: 'text-bottom'
+          }}/>
       </div>
     );
   }

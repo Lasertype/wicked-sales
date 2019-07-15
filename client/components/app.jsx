@@ -12,6 +12,8 @@ export default class App extends React.Component {
         params: {}
       }
     };
+
+    this.setView = this.setView.bind(this);
   }
 
   getProducts() {
@@ -36,15 +38,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <img src="/WickedBuyer.png" alt="oneofus"
-          style={{
-            float: 'right',
-            display: 'inline-block',
-            width: '28%',
-            height: 'auto'
-          }}/>
         <Header />
-        <ProductList products={this.state.products} />
+        <ProductList viewState={this.setView} products={this.state.products} />
       </div>
     );
   }
