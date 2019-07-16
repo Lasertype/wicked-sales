@@ -25,7 +25,9 @@ export default class App extends React.Component {
   }
 
   getCartItems() {
-    fetch('/api/cart.php')
+    fetch('/api/cart.php', {
+      method: 'GET'
+    })
       .then(response => response.json())
       .then(cart => this.setState({ cart }));
   }
