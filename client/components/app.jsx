@@ -32,11 +32,6 @@ export default class App extends React.Component {
       .then(cart => this.setState({ cart }));
   }
 
-  componentDidMount() {
-    this.getProducts();
-    this.getCartItems();
-  }
-
   setView(name, params) {
     this.setState({
       view: {
@@ -44,6 +39,20 @@ export default class App extends React.Component {
         params
       }
     });
+  }
+
+  addToCart(product) {
+    fetch('/api/cart.php', {
+      method: 'POST',
+      body: JSON.stringify(product)
+    })
+      .then(response => response.json())
+      .then(cart => this.setState({ cart }));
+  }
+
+  componentDidMount() {
+    this.getProducts();
+    this.getCartItems();
   }
 
   render() {

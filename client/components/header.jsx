@@ -4,7 +4,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flexbox' }}>
+      <div className='col-lg-10 col-md-10 col-sm-10' style={{ display: 'flexbox' }}>
         <div style={{ display: 'inline-block' }}>
           <h1 className="header"
             style={{
