@@ -24,8 +24,15 @@ export default class App extends React.Component {
       .then(products => this.setState({ products }));
   }
 
+  getCartItems() {
+    fetch('/api/cart.php')
+      .then(response => response.json())
+      .then(cart => this.setState({ cart }));
+  }
+
   componentDidMount() {
     this.getProducts();
+    this.getCartItems();
   }
 
   setView(name, params) {
