@@ -16,6 +16,7 @@ export default class App extends React.Component {
     };
 
     this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   getProducts() {
@@ -42,12 +43,18 @@ export default class App extends React.Component {
   }
 
   addToCart(product) {
+    let cartState = this.state.cart;
+    let newCartState = null;
+
     fetch('/api/cart.php', {
       method: 'POST',
       body: JSON.stringify(product)
     })
       .then(response => response.json())
-      .then(cart => this.setState({ cart }));
+      .then(addedItem => {
+        newCartState = cartState.concat(addedItem);
+        this.setState({ cart: newCartState });
+      });
   }
 
   componentDidMount() {
@@ -67,7 +74,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header cartItemCount={this.state.cart.length}/>
-          <ProductDetails viewState={this.setView} viewParams={this.state.view['params']}/>
+          <ProductDetails viewState={this.setView} viewParams={this.state.view['params']} addItemToCart={this.addToCart}/>
         </div>
       );
     }
