@@ -11,4 +11,4 @@ function handleError($error) {
     print($json_output);
 }
 
-?>
+?> 
