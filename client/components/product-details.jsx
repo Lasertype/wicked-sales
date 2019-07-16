@@ -64,6 +64,7 @@ export default class ProductDetails extends React.Component {
                 marginBottom: '20px'
               }}>
               <div className="productLongDesc">{this.state.product.longDescription}</div>
+              <button className="btn btn-primary" style={{ marginTop: '20px' }}>Add to Cart</button>
             </div>
           </div>
         </div>
