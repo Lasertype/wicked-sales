@@ -42,7 +42,7 @@ export default class Header extends React.Component {
         <div style={{ display: 'inline-block', float: 'right' }}>
           <h3>
             <i className="fas fa-shopping-cart"></i>
-            {this.props.cartItemCount}
+            {this.props.cartItemCount} Items
           </h3>
         </div>
       </div>
