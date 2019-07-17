@@ -10,7 +10,7 @@ export default class App extends React.Component {
     this.state = {
       products: [],
       view: {
-        name: 'cart',
+        name: 'catalog',
         params: {}
       },
       cart: []
@@ -67,21 +67,21 @@ export default class App extends React.Component {
     if (this.state.view['name'] === 'catalog') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length}/>
+          <Header viewState={this.setView} cartItemCount={this.state.cart.length}/>
           <ProductList viewState={this.setView} products={this.state.products} />
         </div>
       );
     } else if (this.state.view['name'] === 'details') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length}/>
+          <Header viewState={this.setView} cartItemCount={this.state.cart.length}/>
           <ProductDetails viewState={this.setView} viewParams={this.state.view['params']} addItemToCart={this.addToCart}/>
         </div>
       );
     } else if (this.state.view['name'] === 'cart') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length}/>
+          <Header viewState={this.setView} cartItemCount={this.state.cart.length}/>
           <CartSummary viewState={this.setView} itemsInCart={this.state.cart}/>
         </div>
       );
