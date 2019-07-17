@@ -7,10 +7,19 @@ export default class CartSummary extends React.Component {
 
     this.backToCatalog = this.backToCatalog.bind(this);
     this.calculateOrderTotal = this.calculateOrderTotal.bind(this);
+    this.goToCheckout = this.goToCheckout.bind(this);
   }
 
   backToCatalog() {
     this.props.viewState('catalog', {});
+  }
+
+  goToCheckout() {
+    if (this.props.itemsInCart.length > 0) {
+      this.props.viewState('checkout', {});
+    } else {
+      alert('Your cart is empty!');
+    }
   }
 
   calculateOrderTotal() {
@@ -44,7 +53,10 @@ export default class CartSummary extends React.Component {
               }
             </tbody>
           </table>
-          <h3>Item Total ${this.calculateOrderTotal()}</h3>
+          <div>
+            <h3 style={{ display: 'inline-block' }}>Item Total ${this.calculateOrderTotal()}</h3>
+            <button className="btn btn-primary btn-lg" onClick={this.goToCheckout} style={{ float: 'right', marginTop: '20px' }}>Place Order</button>
+          </div>
         </div>
       );
     } else {

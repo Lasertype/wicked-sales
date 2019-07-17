@@ -8,10 +8,23 @@ export default class CheckoutForm extends React.Component {
     };
 
     this.backToCatalog = this.backToCatalog.bind(this);
+    this.convertcalculateOrderTotalToDollars = this.calculateOrderTotal.bind(this);
   }
 
   backToCatalog() {
     this.props.viewState('catalog', {});
+  }
+
+  calculateOrderTotal() {
+    let total = null;
+    let convertedNum = null;
+
+    this.props.itemsInCart.forEach(item => {
+      total += item.price;
+    });
+
+    convertedNum = (total / 100).toFixed(2);
+    return convertedNum;
   }
 
   render() {
@@ -19,8 +32,9 @@ export default class CheckoutForm extends React.Component {
 
     return (
       <div>
-        <div className=" col-lg-8">
+        <div className="col-lg-6" style={{ marginLeft: '2rem' }}>
           <h2>Checkout</h2>
+          <h4 className="text-muted">Order Total ${this.calculateOrderTotal()}</h4>
           <form action="">
             <label style={{ marginTop: '20px' }} htmlFor="Name">Name</label>
             <input className="form-control" type="text" id="Name" name="name"/>
@@ -29,7 +43,10 @@ export default class CheckoutForm extends React.Component {
             <label style={{ marginTop: '20px' }} htmlFor="Address">Address</label>
             <textarea className="form-control" cols="30" rows="10" id="Address" name="address"></textarea>
           </form>
-          <h4 className="" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>{angle} Continue Shopping</h4>
+          <div>
+            <h4 onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px', display: 'inline-block' }}>{angle} Continue Shopping</h4>
+            <button className="btn btn-primary btn-lg" style={{ float: 'right', marginTop: '20px' }}>Place Order</button>
+          </div>
         </div>
       </div>
     );
