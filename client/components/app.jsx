@@ -18,6 +18,7 @@ export default class App extends React.Component {
 
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   getProducts() {
@@ -56,6 +57,28 @@ export default class App extends React.Component {
         newCartState = cartState.concat(addedItem);
         this.setState({ cart: newCartState });
       });
+  }
+
+  placeOrder(orderInfo) {
+    let cartState = this.state.cart;
+    let newCartState = [];
+
+    newCartState = cartState.concat(orderInfo);
+
+    fetch('/api/orders.php', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: orderInfo.name,
+        creditCard: orderInfo.creditCard,
+        address: orderInfo.address,
+        cart: this.state.cart
+      })
+    });
+
+    newCartState = [];
+    this.setState({ cart: newCartState });
+
+    this.viewState('catalog', {});
   }
 
   componentDidMount() {
