@@ -24,11 +24,7 @@ export default class CartSummaryItem extends React.Component {
         </td>
         <td>
           <h3 className="card-title">{this.props.itemInfo.name}</h3>
-        </td>
-        <td>
           <p className="card-text text-muted">{convertedProductPrice}</p>
-        </td>
-        <td>
           <h5 className="card-text">{this.props.itemInfo.shortDescription}</h5>
         </td>
       </tr>
