@@ -30,9 +30,15 @@ export default class CartSummary extends React.Component {
 
     if (this.props.itemsInCart.length > 0) {
       return (
-        <div>
+        <div className="col-lg-8">
           <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>{angle} Back to Catalog</p>
-          <h2>My Cart</h2>
+          <h2 style={{ float: 'left' }}>My Cart</h2>
+          <table className="table table-striped">
+            <tbody>
+
+            </tbody>
+          </table>
+
           {
             this.props.itemsInCart.map(item => {
               return (
@@ -40,13 +46,13 @@ export default class CartSummary extends React.Component {
               );
             })
           }
-          <p>Item Total {this.calculateOrderTotal()}</p>
+          <h3>Item Total ${this.calculateOrderTotal()}</h3>
         </div>
       );
     } else {
       return (
         <div>
-                Your cart is empty!!
+            Your cart is empty!!
         </div>
       );
     }
