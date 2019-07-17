@@ -35,17 +35,15 @@ export default class CartSummary extends React.Component {
           <h2 style={{ float: 'left' }}>My Cart</h2>
           <table className="table table-striped">
             <tbody>
-
+              {
+                this.props.itemsInCart.map(item => {
+                  return (
+                    <CartSummaryItem key={item.id} itemInfo={item} />
+                  );
+                })
+              }
             </tbody>
           </table>
-
-          {
-            this.props.itemsInCart.map(item => {
-              return (
-                <CartSummaryItem key={item.id} itemInfo={item} />
-              );
-            })
-          }
           <h3>Item Total ${this.calculateOrderTotal()}</h3>
         </div>
       );

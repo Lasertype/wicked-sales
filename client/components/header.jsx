@@ -49,7 +49,7 @@ export default class Header extends React.Component {
             }}/>
         </div>
         <div style={{ display: 'inline-block', float: 'right' }}>
-          <h3>
+          <h3 style={{ cursor: 'pointer' }}>
             <i onClick={this.backToCatalog} className="fas fa-shopping-cart"></i>
             {this.props.cartItemCount} Items
           </h3>
