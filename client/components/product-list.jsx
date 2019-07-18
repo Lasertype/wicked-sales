@@ -5,13 +5,13 @@ export default class ProductList extends React.Component {
 
   render() {
     return (
-      <div className="container col-lg-10" style={{ paddingLeft: '35px', marginLeft: '2rem' }}>
+      <div className="container col-lg-10" style={{ marginLeft: '2rem' }}>
         <div className="row">
           {
             this.props.products.map(product => {
               return (
                 <div className="col-sm-4 test"
-                  style={{ height: '325px', position: 'relative' }}
+                  style={{ height: '325px', position: 'relative', marginTop: '20px' }}
                   key={product.id}
                   onClick={this.updateViewState}>
                   <ProductListItem viewState={this.props.viewState} products={product}/>

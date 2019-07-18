@@ -38,7 +38,7 @@ export default class CartSummary extends React.Component {
     if (this.props.itemsInCart.length > 0) {
       return (
         <div className="col-lg-8" style={{ marginLeft: '2rem' }}>
-          <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>&lt; Back to Catalog</p>
+          <h4 className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>&lt; Back to Catalog</h4>
           <h2 style={{ float: 'left' }}>My Cart</h2>
           <table className="table table-striped">
             <tbody>

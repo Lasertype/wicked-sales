@@ -45,7 +45,7 @@ export default class ProductDetails extends React.Component {
       <div>
         <div className="productDisplayContainer container col-lg-6" style={{ marginLeft: '3.5rem' }}>
           <div className="card">
-            <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>&lt; Back to Catalog</p>
+            <h4 className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>&lt; Back to Catalog</h4>
             <div className="topHalfContainer" style={{ paddingBottom: '100px' }}>
               <div className="productImgContainer col-lg-6" style={{ display: 'inline-block' }}>
                 <img className="productImg img-responsive"
@@ -69,7 +69,7 @@ export default class ProductDetails extends React.Component {
                 marginBottom: '20px'
               }}>
               <div className="productLongDesc">{this.state.product.longDescription}</div>
-              <button className="btn btn-primary" style={{ marginTop: '20px' }} onClick={this.addProductToCart}>Add to Cart</button>
+              <button className="btn btn-primary btn-lg" style={{ marginTop: '20px' }} onClick={this.addProductToCart}>Add to Cart</button>
             </div>
           </div>
         </div>

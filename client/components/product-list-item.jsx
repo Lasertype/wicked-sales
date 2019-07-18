@@ -26,12 +26,12 @@ export default class ProductListItem extends React.Component {
         <img className="card-img-top img-responsive"
           src={this.props.products.image}
           alt="Card image cap"
-          style={{ height: '150px', objectFit: 'contain' }}/>
-        <div className="card-body">
+          style={{ height: '150px', objectFit: 'contain', position: 'relative', left: '50%', transform: 'translate(-50%)' }}/>
+        <div className="card-body" style={{ textAlign: 'center' }}>
           <h3 className="card-title">{this.props.products.name}</h3>
           <p className="card-text text-muted">{convertedProductPrice}</p>
           <h5 className="card-text">{this.props.products.shortDescription}</h5>
-          <div style={{ position: 'absolute', top: '90%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div>
             <button type="button" onClick={this.updateViewState} className="btn btn-primary">Buy</button>
           </div>
         </div>

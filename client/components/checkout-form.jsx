@@ -54,7 +54,7 @@ export default class CheckoutForm extends React.Component {
       <div>
         <div className="col-lg-6" style={{ marginLeft: '2rem' }}>
           <h2>Checkout</h2>
-          <h4 className="text-muted">Order Total ${this.calculateOrderTotal()}</h4>
+          <h4 className="text-muted" style={{ marginTop: '20px' }}>Order Total ${this.calculateOrderTotal()}</h4>
           <form action="">
             <label style={{ marginTop: '20px' }} htmlFor="Name">Name</label>
             <input className="form-control" type="text" id="Name" name="name" onChange={this.handleNameChange}/>
