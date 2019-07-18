@@ -40,13 +40,12 @@ export default class ProductDetails extends React.Component {
 
     const productPrice = this.state.product.price;
     const convertedProductPrice = this.convertToDollars(productPrice);
-    const angle = '<';
 
     return (
       <div>
-        <div className="productDisplayContainer container col-lg-6" style={{ border: '1px solid black' }}>
+        <div className="productDisplayContainer container col-lg-6" style={{ marginLeft: '3.5rem' }}>
           <div className="card">
-            <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>{angle} Back to Catalog</p>
+            <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>&lt; Back to Catalog</p>
             <div className="topHalfContainer" style={{ paddingBottom: '100px' }}>
               <div className="productImgContainer col-lg-6" style={{ display: 'inline-block' }}>
                 <img className="productImg img-responsive"

@@ -7,10 +7,19 @@ export default class CartSummary extends React.Component {
 
     this.backToCatalog = this.backToCatalog.bind(this);
     this.calculateOrderTotal = this.calculateOrderTotal.bind(this);
+    this.goToCheckout = this.goToCheckout.bind(this);
   }
 
   backToCatalog() {
     this.props.viewState('catalog', {});
+  }
+
+  goToCheckout() {
+    if (this.props.itemsInCart.length > 0) {
+      this.props.viewState('checkout', {});
+    } else {
+      alert('Your cart is empty!');
+    }
   }
 
   calculateOrderTotal() {
@@ -26,25 +35,26 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-    const angle = '<';
-
     if (this.props.itemsInCart.length > 0) {
       return (
-        <div className="col-lg-8">
-          <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>{angle} Back to Catalog</p>
+        <div className="col-lg-8" style={{ marginLeft: '2rem' }}>
+          <p className="text-muted" onClick={this.backToCatalog} style={{ cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }}>&lt; Back to Catalog</p>
           <h2 style={{ float: 'left' }}>My Cart</h2>
           <table className="table table-striped">
             <tbody>
               {
-                this.props.itemsInCart.map(item => {
+                this.props.itemsInCart.map((item, index) => {
                   return (
-                    <CartSummaryItem key={item.id} itemInfo={item} />
+                    <CartSummaryItem key={index} itemInfo={item} />
                   );
                 })
               }
             </tbody>
           </table>
-          <h3>Item Total ${this.calculateOrderTotal()}</h3>
+          <div>
+            <h3 style={{ display: 'inline-block' }}>Item Total ${this.calculateOrderTotal()}</h3>
+            <button className="btn btn-primary btn-lg" onClick={this.goToCheckout} style={{ float: 'right', marginTop: '20px' }}>Checkout</button>
+          </div>
         </div>
       );
     } else {
